@@ -1,0 +1,154 @@
+{
+  "courses": [
+    {
+      "id": "nextjs-16-complete-course",
+      "title": "Next.js 16 Complete Course",
+      "slug": "nextjs-16-complete-course",
+      "thumbnail": "https://i.ytimg.com/vi/ZVnjOPwW4ZA/maxresdefault.jpg",
+      "description": "Learn Next.js 16 from beginner to advanced with App Router, Server Components, Tailwind CSS, authentication, APIs, and deployment.",
+      "category": "Web Development",
+      "level": "Beginner",
+      "instructor": "EduTech Team",
+      "language": "English",
+      "price": 0,
+      "isPublished": true,
+      "tags": [
+        "Next.js",
+        "React",
+        "Tailwind CSS",
+        "TypeScript"
+      ],
+      "createdAt": "2026-05-26T00:00:00.000Z",
+      "updatedAt": "2026-05-26T00:00:00.000Z",
+      "videos": [
+        {
+          "id": "nextjs-intro",
+          "title": "Introduction to Next.js 16",
+          "youtubeVideoId": "ZVnjOPwW4ZA",
+          "youtubeUrl": "https://www.youtube.com/watch?v=ZVnjOPwW4ZA",
+          "duration": "12:45",
+          "order": 1,
+          "isPreview": true
+        },
+        {
+          "id": "nextjs-routing",
+          "title": "App Router and Folder Structure",
+          "youtubeVideoId": "wm5gMKuwSYk",
+          "youtubeUrl": "https://www.youtube.com/watch?v=wm5gMKuwSYk",
+          "duration": "24:10",
+          "order": 2,
+          "isPreview": false
+        },
+        {
+          "id": "nextjs-server-components",
+          "title": "Understanding Server Components",
+          "youtubeVideoId": "Y6KDk5iyrYE",
+          "youtubeUrl": "https://www.youtube.com/watch?v=Y6KDk5iyrYE",
+          "duration": "18:30",
+          "order": 3,
+          "isPreview": false
+        }
+      ]
+    },
+    {
+      "id": "javascript-mastery",
+      "title": "JavaScript Mastery Bootcamp",
+      "slug": "javascript-mastery-bootcamp",
+      "thumbnail": "https://i.ytimg.com/vi/W6NZfCO5SIk/maxresdefault.jpg",
+      "description": "Master JavaScript fundamentals, ES6+, asynchronous programming, DOM manipulation, and modern development concepts.",
+      "category": "Programming",
+      "level": "Beginner",
+      "instructor": "EduTech Team",
+      "language": "English",
+      "price": 0,
+      "isPublished": true,
+      "tags": [
+        "JavaScript",
+        "ES6",
+        "Frontend",
+        "Programming"
+      ],
+      "createdAt": "2026-05-26T00:00:00.000Z",
+      "updatedAt": "2026-05-26T00:00:00.000Z",
+      "videos": [
+        {
+          "id": "js-intro",
+          "title": "JavaScript Crash Course",
+          "youtubeVideoId": "W6NZfCO5SIk",
+          "youtubeUrl": "https://www.youtube.com/watch?v=W6NZfCO5SIk",
+          "duration": "48:20",
+          "order": 1,
+          "isPreview": true
+        },
+        {
+          "id": "js-es6",
+          "title": "Modern ES6 Features",
+          "youtubeVideoId": "NCwa_xi0Uuc",
+          "youtubeUrl": "https://www.youtube.com/watch?v=NCwa_xi0Uuc",
+          "duration": "36:45",
+          "order": 2,
+          "isPreview": false
+        },
+        {
+          "id": "js-async",
+          "title": "Async Await and Fetch API",
+          "youtubeVideoId": "vn3tm0quoqE",
+          "youtubeUrl": "https://www.youtube.com/watch?v=vn3tm0quoqE",
+          "duration": "28:12",
+          "order": 3,
+          "isPreview": false
+        }
+      ]
+    },
+    {
+      "id": "system-design-interview",
+      "title": "System Design Interview Preparation",
+      "slug": "system-design-interview-preparation",
+      "thumbnail": "https://i.ytimg.com/vi/UzLMhqg3_Wc/maxresdefault.jpg",
+      "description": "Learn scalable system architecture, databases, caching, load balancing, microservices, and interview strategies.",
+      "category": "System Design",
+      "level": "Intermediate",
+      "instructor": "EduTech Team",
+      "language": "English",
+      "price": 0,
+      "isPublished": true,
+      "tags": [
+        "System Design",
+        "Backend",
+        "Scalability",
+        "Microservices"
+      ],
+      "createdAt": "2026-05-26T00:00:00.000Z",
+      "updatedAt": "2026-05-26T00:00:00.000Z",
+      "videos": [
+        {
+          "id": "sd-intro",
+          "title": "Introduction to System Design",
+          "youtubeVideoId": "UzLMhqg3_Wc",
+          "youtubeUrl": "https://www.youtube.com/watch?v=UzLMhqg3_Wc",
+          "duration": "22:15",
+          "order": 1,
+          "isPreview": true
+        },
+        {
+          "id": "sd-load-balancer",
+          "title": "Load Balancer Explained",
+          "youtubeVideoId": "K0Ta65OqQkY",
+          "youtubeUrl": "https://www.youtube.com/watch?v=K0Ta65OqQkY",
+          "duration": "19:10",
+          "order": 2,
+          "isPreview": false
+        },
+        {
+          "id": "sd-cache",
+          "title": "Caching Strategies",
+          "youtubeVideoId": "RUCKSvWMuak",
+          "youtubeUrl": "https://www.youtube.com/watch?v=RUCKSvWMuak",
+          "duration": "26:30",
+          "order": 3,
+          "isPreview": false
+        }
+      ]
+    }
+  ]
+}
