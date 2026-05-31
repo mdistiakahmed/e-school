@@ -23,7 +23,7 @@ const Topbar = () => {
       children: [
         {
           name: "All Courses",
-          href: "/courses",
+          href: "/courses/search",
         },
         {
           name: "My Learning",

@@ -45,42 +45,42 @@ export default async function HomePage() {
   };
 
   const reviews: Review[] = [
-  {
-    id: 1,
-    name: "Rahim Ahmed",
-    role: "HSC Science Student",
-    review:
-      "e-School has made my Physics and Mathematics preparation much easier. The step-by-step video explanations and clear concepts helped me improve my exam results. এখন আমি অনেক আত্মবিশ্বাসের সাথে problem solve করতে পারি।",
-  },
-  {
-    id: 2,
-    name: "Nusrat Jahan",
-    role: "University Student (BBA)",
-    review:
-      "The Business Studies and English communication courses are very practical and easy to understand. Real-life examples and structured lessons helped me improve my presentation and writing skills. এখন আমার academic performance অনেক better হয়েছে।",
-  },
-  {
-    id: 3,
-    name: "Sabbir Hasan",
-    role: "SSC Student",
-    review:
-      "I really like how flexible the learning system is. I can study anytime from my mobile phone, even on the way to school. ভিডিও লেসনগুলো ছোট এবং সহজভাবে explain করা, so it’s very effective for me.",
-  },
-  {
-    id: 4,
-    name: "Tanvir Islam",
-    role: "Job Seeker",
-    review:
-      "The communication, English speaking, and interview preparation courses were extremely helpful for my job preparation. I feel much more confident now in interviews. আগে আমি nervous হতাম, but now I can express myself clearly.",
-  },
-  {
-    id: 5,
-    name: "Farzana Akter",
-    role: "Parent",
-    review:
-      "As a parent, I am very satisfied with e-School. My daughter enjoys the video lessons and quizzes, and her study habit has improved a lot. এখন সে নিজে থেকেই নিয়মিত পড়াশোনা করে এবং শেখার প্রতি আগ্রহী হয়ে উঠেছে।",
-  },
-];
+    {
+      id: 1,
+      name: "Rahim Ahmed",
+      role: "HSC Science Student",
+      review:
+        "e-School has made my Physics and Mathematics preparation much easier. The step-by-step video explanations and clear concepts helped me improve my exam results. এখন আমি অনেক আত্মবিশ্বাসের সাথে problem solve করতে পারি।",
+    },
+    {
+      id: 2,
+      name: "Nusrat Jahan",
+      role: "University Student (BBA)",
+      review:
+        "The Business Studies and English communication courses are very practical and easy to understand. Real-life examples and structured lessons helped me improve my presentation and writing skills. এখন আমার academic performance অনেক better হয়েছে।",
+    },
+    {
+      id: 3,
+      name: "Sabbir Hasan",
+      role: "SSC Student",
+      review:
+        "I really like how flexible the learning system is. I can study anytime from my mobile phone, even on the way to school. ভিডিও লেসনগুলো ছোট এবং সহজভাবে explain করা, so it’s very effective for me.",
+    },
+    {
+      id: 4,
+      name: "Tanvir Islam",
+      role: "Job Seeker",
+      review:
+        "The communication, English speaking, and interview preparation courses were extremely helpful for my job preparation. I feel much more confident now in interviews. আগে আমি nervous হতাম, but now I can express myself clearly.",
+    },
+    {
+      id: 5,
+      name: "Farzana Akter",
+      role: "Parent",
+      review:
+        "As a parent, I am very satisfied with e-School. My daughter enjoys the video lessons and quizzes, and her study habit has improved a lot. এখন সে নিজে থেকেই নিয়মিত পড়াশোনা করে এবং শেখার প্রতি আগ্রহী হয়ে উঠেছে।",
+    },
+  ];
 
   return (
     <main className="min-h-screen ">
@@ -110,14 +110,15 @@ export default async function HomePage() {
 
           {/* Description */}
           <p className="mx-auto mt-8 max-w-2xl text-lg leading-8 text-gray-600 md:text-xl">
-            Master in-demand skills, bridge the gap between academics and industry, 
-            and learn from top-tier mentors. Start your journey from basic to breakthrough.
+            Master in-demand skills, bridge the gap between academics and
+            industry, and learn from top-tier mentors. Start your journey from
+            basic to breakthrough.
           </p>
 
           {/* CTA */}
           <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link
-              href="#courses"
+              href="/courses/search"
               className="rounded-xl border border-gray-300 bg-white px-8 py-4 font-semibold text-gray-700 transition hover:bg-gray-50"
             >
               Start Learning Now
@@ -134,12 +135,13 @@ export default async function HomePage() {
               "Creative Arts",
               "Career Readiness",
             ].map((item) => (
-              <span
+              <Link
                 key={item}
-                className="rounded-full bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm ring-1 ring-gray-200 hover:ring-blue-300 transition cursor-default"
+                href={`/courses/search?category=${encodeURIComponent(item)}`}
+                className="rounded-full bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm ring-1 ring-gray-200 hover:ring-blue-300 hover:text-blue-700 transition cursor-pointer"
               >
                 {item}
-              </span>
+              </Link>
             ))}
           </div>
         </div>

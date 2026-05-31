@@ -2,20 +2,15 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import {
-  FaPlus,
-  FaTrash,
-} from "react-icons/fa6";
+import { FaPlus, FaTrash } from "react-icons/fa6";
 
 const categories = [
-  "Web Development",
-  "Mobile Development",
-  "Programming",
-  "System Design",
-  "DevOps",
-  "Database",
-  "Machine Learning",
-  "Artificial Intelligence",
+  "Tech & Coding",
+  "Business & Marketing",
+  "Academic Support",
+  "Language Learning",
+  "Creative Arts",
+  "Career Readiness",
 ];
 
 export default function NewCoursePage() {
@@ -172,10 +167,7 @@ export default function NewCoursePage() {
                   className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none transition focus:border-blue-500"
                 >
                   {categories.map((category) => (
-                    <option
-                      key={category}
-                      value={category}
-                    >
+                    <option key={category} value={category}>
                       {category}
                     </option>
                   ))}
@@ -230,10 +222,7 @@ export default function NewCoursePage() {
 
               <div className="space-y-4">
                 {form.videos.map((video, index) => (
-                  <div
-                    key={index}
-                    className="flex gap-3"
-                  >
+                  <div key={index} className="flex gap-3">
                     <div className="flex-1">
                       <label className="mb-2 block text-sm font-medium text-gray-700">
                         Lecture {index + 1} URL
@@ -242,12 +231,7 @@ export default function NewCoursePage() {
                       <input
                         type="text"
                         value={video}
-                        onChange={(e) =>
-                          updateVideo(
-                            index,
-                            e.target.value
-                          )
-                        }
+                        onChange={(e) => updateVideo(index, e.target.value)}
                         placeholder="https://www.youtube.com/watch?v=..."
                         className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none transition focus:border-blue-500"
                       />
@@ -256,9 +240,7 @@ export default function NewCoursePage() {
                     {form.videos.length > 1 && (
                       <button
                         type="button"
-                        onClick={() =>
-                          removeLectureField(index)
-                        }
+                        onClick={() => removeLectureField(index)}
                         className="mt-8 h-12 rounded-xl bg-red-50 px-4 text-red-600 transition hover:bg-red-100"
                       >
                         <FaTrash />
@@ -283,9 +265,7 @@ export default function NewCoursePage() {
                 onClick={handleSubmit}
                 className="rounded-xl bg-blue-600 px-5 py-3 font-medium text-white transition hover:bg-blue-700 disabled:opacity-50"
               >
-                {loading
-                  ? "Creating..."
-                  : "Create Course"}
+                {loading ? "Creating..." : "Create Course"}
               </button>
             </div>
           </div>
