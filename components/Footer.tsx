@@ -21,8 +21,8 @@ const Footer = () => {
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
               <FaGraduationCap className="text-blue-500 text-2xl" />
-              <span className="text-xl font-bold">EduTech</span>
-              <span className="text-blue-400 text-xs">.com</span>
+              <span className="text-xl font-bold">BaseCamp</span>
+              <span className="text-blue-400 text-xs">.bd</span>
             </div>
             <p className="text-gray-400 text-sm">
               Your complete portal to online education. Access courses, resources, and learning materials with ease and flexibility.
@@ -159,11 +159,11 @@ const Footer = () => {
               </li>
               <li className="flex items-center">
                 <FaEnvelope className="mr-2 text-blue-500 flex-shrink-0" />
-                <span>support@edutech.com</span>
+                <span>support@basecamp.bd</span>
               </li>
               <li className="flex items-center">
                 <FaPhone className="mr-2 text-blue-500 flex-shrink-0" />
-                <span>Support Hotline: 1-800-EDU-TECH</span>
+                <span>Support Hotline: 1-800-Base-Camp</span>
               </li>
               <li>
                 <a
@@ -180,7 +180,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-gray-700 mt-12 pt-6 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-gray-400">
-            © {currentYear} EduTech.com. All rights reserved.
+            © {currentYear} BaseCamp.bd. All rights reserved.
           </p>
           <p className="text-sm text-gray-400 mt-4 md:mt-0">
             Online Education Platform
