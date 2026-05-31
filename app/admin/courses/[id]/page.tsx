@@ -3,17 +3,7 @@
 import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { FaPlus, FaTrash } from "react-icons/fa6";
-
-const categories = [
-  "Web Development",
-  "Mobile Development",
-  "Programming",
-  "System Design",
-  "DevOps",
-  "Database",
-  "Machine Learning",
-  "Artificial Intelligence",
-];
+import { categories } from "@/utils/Constants";
 
 type Video = {
   id: string;
