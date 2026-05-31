@@ -50,3 +50,34 @@ export async function getUserByEmail(email: string) {
   const data = await getUsers();
   return data.users.find((u: any) => u.email === email);
 }
+
+export async function enrollCourse(email: string, courseId: string) {
+  const data = await getUsers();
+  const userIndex = data.users.findIndex((u: any) => u.email === email);
+  
+  if (userIndex >= 0) {
+    if (!data.users[userIndex].enrolledCourses) {
+      data.users[userIndex].enrolledCourses = [];
+    }
+    
+    if (!data.users[userIndex].enrolledCourses.includes(courseId)) {
+      data.users[userIndex].enrolledCourses.push(courseId);
+    }
+    
+    await r2.send(
+      new PutObjectCommand({
+        Bucket: BUCKET,
+        Key: KEY,
+        Body: JSON.stringify(data, null, 2),
+        ContentType: "application/json",
+      })
+    );
+  }
+  
+  return data.users[userIndex];
+}
+ 
+export async function getEnrolledCourses(email: string) {
+  const user = await getUserByEmail(email);
+  return user?.enrolledCourses || [];
+}
