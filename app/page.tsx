@@ -96,55 +96,47 @@ export default async function HomePage() {
           }}
         />
 
-        <div className="relative bg-white/70 mx-auto max-w-7xl px-6 py-6 my-6 text-center">
+        <div className="relative bg-white/70 mx-auto max-w-7xl px-6 py-12 my-6 text-center">
           {/* Badge */}
           <div className="inline-flex items-center rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-sm font-medium text-blue-700">
-            🇧🇩 বাংলাদেশের শিক্ষার্থীদের জন্য ডিজিটাল লার্নিং প্ল্যাটফর্ম
+            🇧🇩 বাংলাদেশের শিক্ষার্থীদের জন্য আগামী দিনের স্কিলস প্ল্যাটফর্ম
           </div>
 
           {/* Heading */}
-          <h1 className="mt-8 text-5xl font-extrabold tracking-tight text-gray-900 md:text-7xl">
-            Learn Without Limits
-            <span className="block text-blue-600">with e-School</span>
+          <h1 className="mt-8 text-5xl font-extrabold tracking-tight text-gray-900 md:text-7xl max-w-4xl mx-auto leading-tight">
+            Your Launchpad for Success
+            <span className="block text-blue-600 mt-2">with Basecamp</span>
           </h1>
 
           {/* Description */}
-          <p className="mx-auto mt-8 max-w-3xl text-lg leading-8 text-gray-600 md:text-xl">
-            Explore courses in Science, Business, Arts, Languages, Mathematics,
-            Technology, and essential life skills. Learn from expert instructors
-            and high-quality video lessons, anytime and anywhere.
+          <p className="mx-auto mt-8 max-w-2xl text-lg leading-8 text-gray-600 md:text-xl">
+            Master in-demand skills, bridge the gap between academics and industry, 
+            and learn from top-tier mentors. Start your journey from basic to breakthrough.
           </p>
 
           {/* CTA */}
           <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link
               href="#courses"
-              className="rounded-xl bg-blue-600 px-8 py-4 font-semibold text-white shadow-lg transition hover:bg-blue-700"
-            >
-              Explore Courses
-            </Link>
-
-            <Link
-              href="/admin/login"
               className="rounded-xl border border-gray-300 bg-white px-8 py-4 font-semibold text-gray-700 transition hover:bg-gray-50"
             >
-              Admin Portal
+              Start Learning Now
             </Link>
           </div>
 
           {/* Categories */}
-          <div className="mt-16 flex flex-wrap justify-center gap-3">
+          <div className="mt-16 flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
             {[
-              "Science",
-              "Business",
-              "Arts",
-              "Languages",
-              "Mathematics",
-              "Technology",
+              "Tech & Coding",
+              "Business & Marketing",
+              "Academic Support",
+              "Language Learning",
+              "Creative Arts",
+              "Career Readiness",
             ].map((item) => (
               <span
                 key={item}
-                className="rounded-full bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm ring-1 ring-gray-200"
+                className="rounded-full bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm ring-1 ring-gray-200 hover:ring-blue-300 transition cursor-default"
               >
                 {item}
               </span>

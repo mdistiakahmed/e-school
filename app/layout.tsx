@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "EduTech - Online Learning Platform",
+  title: "BaseCamp - Online Learning Platform",
   description: "Your complete portal to online education",
 };
 

@@ -73,9 +73,9 @@ const Topbar = () => {
               </div>
               <div className="flex flex-col">
                 <span className="text-xl font-bold text-blue-700 leading-tight">
-                  EduTech
+                  BaseCamp
                 </span>
-                <span className="text-xs text-gray-500">.com</span>
+                <span className="text-xs text-gray-500">.bd</span>
               </div>
             </Link>
           </div>

@@ -92,6 +92,14 @@ const Footer = () => {
                   Terms of Service
                 </a>
               </li>
+              <li>
+                <a
+                  href="/admin/login"
+                  className="text-sm text-gray-400 hover:text-blue-400 transition-colors"
+                >
+                  Admin Login
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -134,6 +142,7 @@ const Footer = () => {
                   Documentation
                 </a>
               </li>
+              
             </ul>
           </div>
 
