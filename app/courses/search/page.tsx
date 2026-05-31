@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import { Suspense } from "react";
+import { categories } from "@/utils/Constants";
 
 type Course = any;
 
@@ -16,15 +17,6 @@ function SearchContent() {
   const [searchQuery, setSearchQuery] = useState(searchParams.get("q") || "");
   const [selectedCategory, setSelectedCategory] = useState(searchParams.get("category") || "");
   const [loading, setLoading] = useState(true);
-
-  const categories = [
-    "Tech & Coding",
-    "Business & Marketing",
-    "Academic Support",
-    "Language Learning",
-    "Creative Arts",
-    "Career Readiness",
-  ];
 
   async function loadCourses() {
     setLoading(true);
