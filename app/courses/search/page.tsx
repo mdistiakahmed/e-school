@@ -3,10 +3,11 @@
 import { useEffect, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
+import { Suspense } from "react";
 
 type Course = any;
 
-export default function CoursesSearchPage() {
+function SearchContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   
@@ -252,5 +253,19 @@ export default function CoursesSearchPage() {
         )}
       </div>
     </main>
+  );
+}
+
+export default function CoursesSearchPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-center">
+          <div className="h-12 w-12 animate-spin rounded-full border-4 border-blue-600 border-t-transparent"></div>
+        </div>
+      </div>
+    }>
+      <SearchContent />
+    </Suspense>
   );
 }
