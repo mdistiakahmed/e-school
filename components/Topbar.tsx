@@ -31,20 +31,20 @@ const Topbar = () => {
         },
       ],
     },
-    {
-      id: "resources" as const,
-      name: "Resources",
-      children: [
-        {
-          name: "Blog",
-          href: "/blog",
-        },
-        {
-          name: "Documentation",
-          href: "/docs",
-        },
-      ],
-    },
+    // {
+    //   id: "resources" as const,
+    //   name: "Resources",
+    //   children: [
+    //     {
+    //       name: "Blog",
+    //       href: "/blog",
+    //     },
+    //     {
+    //       name: "Documentation",
+    //       href: "/docs",
+    //     },
+    //   ],
+    // },
     {
       id: "about" as const,
       name: "About",

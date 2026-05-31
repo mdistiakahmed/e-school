@@ -5,6 +5,7 @@ import { useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import { Suspense } from "react";
 import { categories } from "@/utils/Constants";
+import { getYoutubeThumbnail } from "@/utils/CommonFun";
 
 type Course = any;
 
@@ -191,52 +192,60 @@ function SearchContent() {
               <div className="max-w-7xl mx-auto grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {filteredCourses.map((course) => {
                   const firstVideo = course.videos?.[0];
+                  const thumbnail = firstVideo
+              ? getYoutubeThumbnail(firstVideo.youtubeUrl)
+              : "https://placehold.co/600x400";
                   
                   return (
                     <Link
-                      key={course.id}
-                      href={`/courses/${course.id}`}
-                      className="group overflow-hidden rounded-3xl border border-gray-200 bg-white transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
-                    >
-                      <div className="relative h-56 bg-gradient-to-br from-blue-500 to-purple-600">
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <span className="text-white text-6xl font-bold opacity-20">
-                            {course.category.charAt(0)}
-                          </span>
-                        </div>
-                        <div className="absolute bottom-4 left-4">
-                          <span className="rounded-full bg-white px-3 py-1 text-xs font-semibold text-blue-700">
-                            {course.level}
-                          </span>
-                        </div>
-                      </div>
+                key={course.id}
+                href={`/courses/${course.id}`}
+                className="group overflow-hidden rounded-3xl border border-gray-200 bg-white transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
+              >
+                <div className="relative overflow-hidden">
+                  <img
+                    src={thumbnail}
+                    alt={course.title}
+                    className="h-56 w-full object-cover transition duration-500 group-hover:scale-110"
+                  />
 
-                      <div className="p-6">
-                        <div className="mb-3">
-                          <span className="rounded-full bg-blue-100 px-3 py-1 text-xs font-medium text-blue-700">
-                            {course.category}
-                          </span>
-                        </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
 
-                        <h3 className="line-clamp-2 text-xl font-bold text-gray-900">
-                          {course.title}
-                        </h3>
+                  <div className="absolute left-4 top-4 rounded-full bg-blue-600 px-3 py-1 text-xs font-semibold text-white">
+                    {course.level}
+                  </div>
 
-                        <p className="mt-3 line-clamp-3 text-gray-600">
-                          {course.description}
-                        </p>
+                  <div className="absolute bottom-4 right-4 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-lg">
+                    ▶
+                  </div>
+                </div>
 
-                        <div className="mt-5 flex items-center justify-between border-t pt-4">
-                          <span className="text-sm text-gray-500">
-                            {course.videos?.length || 0} lectures
-                          </span>
+                <div className="p-6">
+                  <div className="mb-3">
+                    <span className="rounded-full bg-blue-100 px-3 py-1 text-xs font-medium text-blue-700">
+                      {course.category}
+                    </span>
+                  </div>
 
-                          <span className="font-semibold text-blue-600">
-                            View Course →
-                          </span>
-                        </div>
-                      </div>
-                    </Link>
+                  <h3 className="line-clamp-2 text-xl font-bold text-gray-900">
+                    {course.title}
+                  </h3>
+
+                  <p className="mt-3 line-clamp-3 text-gray-600">
+                    {course.description}
+                  </p>
+
+                  <div className="mt-5 flex items-center justify-between border-t pt-4">
+                    <span className="text-sm text-gray-500">
+                      {course.videos?.length || 0} lectures
+                    </span>
+
+                    <span className="font-semibold text-blue-600">
+                      Start Learning →
+                    </span>
+                  </div>
+                </div>
+              </Link>
                   );
                 })}
               </div>
