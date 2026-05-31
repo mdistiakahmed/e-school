@@ -3,11 +3,13 @@
 import { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
+import { useLoginModal } from "@/context/LoginModalContext";
 
 type Course = any;
 
 export default function MyLearningPage() {
   const { data: session, status } = useSession();
+  const { openLoginModal } = useLoginModal();
   const [courses, setCourses] = useState<Course[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -63,12 +65,20 @@ export default function MyLearningPage() {
         <div className="max-w-md mx-auto bg-white rounded-2xl shadow-lg p-8 text-center">
           <h2 className="text-2xl font-bold text-gray-900 mb-2">Login Required</h2>
           <p className="text-gray-600 mb-6">Please login to view your enrolled courses</p>
-          <a
-            href="/"
+          <button
+            type="button"
+            onClick={() =>
+              openLoginModal({
+                callbackUrl: "/my-learning",
+                title: "Sign in to view your courses",
+                description:
+                  "Log in with Google to see your enrolled courses and continue learning.",
+              })
+            }
             className="inline-block px-6 py-3 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition"
           >
             Login to Continue
-          </a>
+          </button>
         </div>
       </div>
     );

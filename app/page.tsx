@@ -1,5 +1,5 @@
-import { getYoutubeThumbnail } from "@/utils/CommonFun";
 import Link from "next/link";
+import HomeCourseGrid from "@/components/HomeCourseGrid";
 
 type Video = {
   id: string;
@@ -147,67 +147,7 @@ export default async function HomePage() {
           <span className="text-sm text-gray-500">Showing top 10 courses</span>
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {courses.map((course) => {
-            const firstVideo = course.videos?.[0];
-
-            const thumbnail = firstVideo
-              ? getYoutubeThumbnail(firstVideo.youtubeUrl)
-              : "https://placehold.co/600x400";
-
-            return (
-              <Link
-                key={course.id}
-                href={`/courses/${course.id}`}
-                className="group overflow-hidden rounded-3xl border border-gray-200 bg-white transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
-              >
-                <div className="relative overflow-hidden">
-                  <img
-                    src={thumbnail}
-                    alt={course.title}
-                    className="h-56 w-full object-cover transition duration-500 group-hover:scale-110"
-                  />
-
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-
-                  <div className="absolute left-4 top-4 rounded-full bg-blue-600 px-3 py-1 text-xs font-semibold text-white">
-                    {course.level}
-                  </div>
-
-                  <div className="absolute bottom-4 right-4 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-lg">
-                    ▶
-                  </div>
-                </div>
-
-                <div className="p-6">
-                  <div className="mb-3">
-                    <span className="rounded-full bg-blue-100 px-3 py-1 text-xs font-medium text-blue-700">
-                      {course.category}
-                    </span>
-                  </div>
-
-                  <h3 className="line-clamp-2 text-xl font-bold text-gray-900">
-                    {course.title}
-                  </h3>
-
-                  <p className="mt-3 line-clamp-3 text-gray-600">
-                    {course.description}
-                  </p>
-
-                  <div className="mt-5 flex items-center justify-between border-t pt-4">
-                    <span className="text-sm text-gray-500">
-                      {course.videos?.length || 0} lectures
-                    </span>
-
-                    <span className="font-semibold text-blue-600">
-                      Start Learning →
-                    </span>
-                  </div>
-                </div>
-              </Link>
-            );
-          })}
-        </div>
+        <HomeCourseGrid courses={courses} />
       </section>
 
       <section className="overflow-hidden  py-20">

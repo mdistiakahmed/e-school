@@ -1,10 +1,9 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import Image from "next/image";
-import { useSession, signOut, signIn } from "next-auth/react";
+import AuthButton from "@/components/AuthButton";
 
 const Topbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -284,96 +283,5 @@ const Topbar = () => {
     </nav>
   );
 };
-
-
-
-
-function AuthButton() {
-  const { data: session, status } = useSession();
-  const [open, setOpen] = useState(false);
-  const menuRef = useRef<HTMLDivElement>(null);
-
-  // Close on outside click
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-        setOpen(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
-
-  if (status === "loading") {
-    return (
-      <div className="h-10 w-10 animate-pulse bg-gray-200 rounded-full" />
-    );
-  }
-
-  // ✅ Logged in state (ONLY avatar + dropdown)
-  if (session) {
-    return (
-      <div className="relative" ref={menuRef}>
-        <button
-          onClick={() => setOpen((prev) => !prev)}
-          className="focus:outline-none"
-        >
-          {session.user?.image ? (
-            <img
-              src={session.user.image}
-              alt={session.user?.name || "User"}
-              className="h-10 w-10 rounded-full object-cover border-2 border-gray-200"
-            />
-          ) : (
-            <div className="h-10 w-10 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold">
-              {session.user?.name?.charAt(0) || "U"}
-            </div>
-          )}
-        </button>
-
-        {open && (
-          <div className="absolute right-0 mt-2 w-48 bg-white border rounded-xl shadow-lg overflow-hidden z-50">
-            <Link
-              href="/my-learning"
-              className="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50"
-              onClick={() => setOpen(false)}
-            >
-              My Learning
-            </Link>
-
-            <Link
-              href="/profile"
-              className="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50"
-              onClick={() => setOpen(false)}
-            >
-              Profile
-            </Link>
-
-            <button
-              onClick={() => {
-                setOpen(false);
-                signOut();
-              }}
-              className="w-full text-left px-4 py-3 text-sm text-red-600 hover:bg-red-50"
-            >
-              Logout
-            </button>
-          </div>
-        )}
-      </div>
-    );
-  }
-
-  // ❌ Not logged in
-  return (
-    <button
-      onClick={() => signIn("google")}
-      className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium flex items-center gap-2"
-    >
-      Login
-    </button>
-  );
-}
 
 export default Topbar;

@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
+import { useLoginModal } from "@/context/LoginModalContext";
 
 type Video = any;
 type Course = any;
@@ -18,6 +19,7 @@ export default function CourseViewPage() {
   const { id } = useParams<{ id: string }>();
   const router = useRouter();
   const { data: session, status } = useSession();
+  const { openLoginModal } = useLoginModal();
 
   const [course, setCourse] = useState<any>(null);
   const [currentVideo, setCurrentVideo] = useState<any>(null);
@@ -52,7 +54,11 @@ export default function CourseViewPage() {
 
   async function handleEnroll() {
     if (!session?.user?.email) {
-      router.push("/");
+      openLoginModal({
+        callbackUrl: `/courses/${id}`,
+        title: "Sign in to enroll",
+        description: "Log in with Google to enroll in this course.",
+      });
       return;
     }
 
@@ -128,7 +134,15 @@ export default function CourseViewPage() {
             <h2 className="text-2xl font-bold text-gray-900 mb-2">Login Required</h2>
             <p className="text-gray-600 mb-6">Please login to view this course content</p>
             <button
-              onClick={() => router.push("/")}
+              type="button"
+              onClick={() =>
+                openLoginModal({
+                  callbackUrl: `/courses/${id}`,
+                  title: "Sign in to view this course",
+                  description:
+                    "Log in with Google to access lessons and enroll in this course.",
+                })
+              }
               className="w-full px-6 py-3 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition"
             >
               Login to Continue
